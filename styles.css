@@ -4,11 +4,6 @@
     padding: 0;
     box-sizing: border-box;
   }
-
-  .about, .services, .contact, .gallery {
-    text-align: center;
-  }
-  
   
   body {
     font-family: 'Montserrat', sans-serif;
@@ -26,7 +21,6 @@
     list-style-type: none;
   }
   
-  
   .hero {
     background: url('hero.jpg') no-repeat center center/cover;
     height: 80vh;
@@ -34,14 +28,16 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    padding: 2rem;
+    text-align: center;
   }
   
   .hero-overlay {
     background-color: rgba(255, 255, 255, 0.88);
     padding: 2rem;
-    text-align: center;
     border-radius: 10px;
     max-width: 700px;
+    width: 100%;
   }
   
   .hero h1 {
@@ -61,18 +57,21 @@
     padding: 0.75rem 1.5rem;
     border-radius: 5px;
     font-weight: bold;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease;
+    display: inline-block;
   }
   
   .cta-button:hover {
     background-color: #5e3d1b;
+    transform: scale(1.05);
   }
-  
   
   section {
     padding: 4rem 2rem;
     max-width: 1000px;
     margin: 0 auto;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
   }
   
   h2 {
@@ -84,15 +83,10 @@
     padding-bottom: 0.3rem;
   }
   
-  
   .about p {
     margin-bottom: 1rem;
     font-size: 1.05rem;
-    
   }
-
-
-  
   
   .services ul {
     display: grid;
@@ -109,8 +103,13 @@
     border-radius: 5px;
     font-weight: 500;
     box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
   
+  .services li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
   
   .gallery-grid {
     display: grid;
@@ -124,9 +123,13 @@
     box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     object-fit: cover;
     height: 200px;
+    transition: transform 0.3s ease;
   }
   
- 
+  .gallery-grid img:hover {
+    transform: scale(1.02);
+  }
+  
   .contact p {
     margin-bottom: 1rem;
     font-size: 1.1rem;
@@ -141,7 +144,6 @@
     text-decoration: underline;
   }
   
-
   footer {
     background-color: #eee8de;
     text-align: center;
@@ -150,4 +152,89 @@
     color: #5a4a3c;
     margin-top: 3rem;
   }
+  
+  .logo-wrapper {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+  }
+  
+  .logo-wrapper img {
+    height: 60px;
+    width: auto;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+  }
+  
+  .about {
+    background-color: #f8f5f0;
+  }
+  
+  .services {
+    background-color: #ffffff;
+  }
+  
+  .gallery {
+    background-color: #f8f5f0;
+  }
+  
+  .contact {
+    background-color: #ffffff;
+  }
+  
+  section.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  @media (max-width: 768px) {
+    .hero {
+      flex-direction: column;
+      height: auto;
+      padding: 4rem 1rem 2rem;
+      text-align: center;
+    }
+  
+    .hero-overlay h1 {
+      font-size: 2rem;
+    }
+  
+    .hero-overlay p {
+      font-size: 1rem;
+    }
+  
+    .cta-button {
+      font-size: 1rem;
+      padding: 0.6rem 1.2rem;
+    }
+  
+    .gallery-grid img {
+      height: auto;
+    }
+  
+    .logo-wrapper {
+      top: 10px;
+      left: 10px;
+    }
+  
+    section {
+      padding: 3rem 1rem;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  
+    .services ul {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  
   

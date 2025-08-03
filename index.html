@@ -9,6 +9,9 @@
 </head>
 <body>
   <header class="hero">
+    <div class="logo-wrapper">
+        <img src="logo.jpg" alt="Marcum's Dig and Dump logo" />
+      </div>
     <div class="hero-overlay">
       <h1>Marcum's Dig & Dump</h1>
       <p>Serving Central Kentucky with reliable, honest work — from septic installs to gravel driveways.</p>
@@ -18,7 +21,7 @@
 
   <section class="about">
     <h2>About Marcum's Dig & Dump</h2>
-    <p>Marcums dig & dump is there for you when you need excavation or septic work done. With over 10 years of experience, we’re sure to exceed your expectations. We do new installation and repairs. Therei s no job that’s not a priority for us. We are a Christian owned and operated businesses and we uphold those values every time we work for you. Let us earn your business on that next project you’ve been dreaming about!</p>
+    <p>Marcum's dig & dump is there for you when you need excavation or septic work done. With over 10 years of experience, we’re sure to exceed your expectations. We do new installation and repairs. Therei s no job that’s not a priority for us. We are a Christian owned and operated businesses and we uphold those values every time we work for you. Let us earn your business on that next project you’ve been dreaming about!</p>
   </section>
 
   <section class="services">
@@ -63,5 +66,30 @@
   <footer>
     <p>© 2025 Marcum’s Dig and Dump. Site by LaBoyteaux Web Design.</p>
   </footer>
+
+
+  <script>
+    const sections = document.querySelectorAll('section');
+  
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+  
+    sections.forEach(section => {
+      section.classList.add('hidden');
+      observer.observe(section);
+    });
+  </script>
+  
+  
+
+
+
 </body>
 </html>
